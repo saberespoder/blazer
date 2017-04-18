@@ -8,13 +8,13 @@ module Blazer
     end
 
     def state_change(check, state, state_was, rows_count)
-      message = "#{check} check changed status from #{state_was} to #{state}. It now returns #{rows_count} rows. #{query_url(check.query_id)}"
+      message = "#{check.query.name} check changed status from #{state_was} to #{state}. It now returns #{rows_count} rows."
       @notifier.ping(message)
     end
 
     def failing_checks(checks)
       msg = "#{pluralize(checks.size, "Check")} failing.\n"
-      checks.each { |c| msg << "#{query_url(check.query_id)} (#{check.state})" }
+      checks.each { |c| msg << "#{check.query.name} (#{check.state})" }
       @notifier.ping(msg)
     end
 

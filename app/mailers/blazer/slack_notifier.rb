@@ -8,7 +8,7 @@ module Blazer
     end
 
     def state_change(check, state, state_was, rows_count)
-      message = "#{check.query.name} check changed status from #{state_was} to #{state}. It now returns #{rows_count} rows."
+      message = "'#{check.query.name}' check changed status from #{state_was} to #{state}. It now returns #{rows_count} rows. @alessio @etavenn @skatkov"
       @notifier.ping(message)
     end
 

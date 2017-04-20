@@ -14,7 +14,7 @@ module Blazer
 
     def failing_checks(checks)
       msg = "Checks failing.\n"
-      checks.each { |c| msg << "#{check.query.name} (#{check.state})" }
+      checks.each { |c| msg << "#{c.query.name} (#{c.state})" }
       @notifier.ping(msg)
     end
 
